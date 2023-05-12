@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Epr3.Models
+﻿namespace Epr3.Models
 {
-    internal interface Client
+    public class CatalogClientModel
     {
     }
 }
