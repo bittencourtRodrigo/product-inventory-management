@@ -3,10 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Epr3.Views.ProductSaveView"
              Title="ProductSaveView">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+    <VerticalStackLayout Padding="15">
+        <Entry
+            Placeholder="Name"
+            Text="{Binding }"/>
+        <Entry
+            Placeholder="Current Inventory"
+            Text="{Binding }"/>
+        <Entry
+            Placeholder="Barcode"
+            Text="{Binding }"/>
+        <Entry
+            Placeholder="Cost Price"
+            Text="{Binding }"/>
+        <Entry
+            Placeholder="Sale Price"
+            Text="{Binding }"/>
+        <Entry
+            Placeholder="Store Location"
+            Text="{Binding }"/>
+        <Entry
+            Placeholder="Observation"
+            Text="{Binding }"/>
+        <Button
+            Text="Save product"
+            Command="{Binding }"/>
     </VerticalStackLayout>
 </ContentPage>
