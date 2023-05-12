@@ -56,10 +56,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Models\" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <Compile Update="Views\CatalogClientView.xaml.cs">
 	    <DependentUpon>CatalogClientView.xaml</DependentUpon>
 	  </Compile>

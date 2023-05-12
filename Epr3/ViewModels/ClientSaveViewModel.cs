@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Epr3.Models;
 using Epr3.Services.Client;
 
 namespace Epr3.ViewModels
@@ -9,7 +10,7 @@ namespace Epr3.ViewModels
         private readonly IClientService _clientService;
 
         [ObservableProperty]
-        private Client _client;
+        private ClientCatalog _client;
 
         public ClientSaveViewModel(IClientService clientService)
         {
