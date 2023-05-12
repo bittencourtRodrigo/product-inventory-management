@@ -3,10 +3,40 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Epr3.Views.ClientsView"
              Title="ClientsView">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ScrollView>
+        <StackLayout>
+            <HorizontalStackLayout>
+                <SearchBar
+                    Grid.Row="0"
+                    Placeholder="Serach here..."
+                    Text="{Binding SearchText, Mode=TwoWay}"/>
+                <Button
+                    Text="AddClient"
+                    Command="{Binding ClientAddCommand}"/>
+            </HorizontalStackLayout>
+            <ListView ItemsSource="{Binding ClientLists}" ItemTapped="ListView_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid ColumnDefinitions="20, *, Auto" RowDefinitions="Auto, Auto" Padding="5">
+                                <Label
+                                    Grid.Column="0"
+                                    Text="{Binding Id}"/>
+                                <Label
+                                    Grid.Column="1"
+                                    text="{Binding Name}"/>
+                                <Label
+                                    Grid.Column="2"
+                                    Text="{Binding RegisterFiJu}"/>
+                                <Label
+                                    Grid.ColumnSpan="3"
+                                    Grid.Row="1"
+                                    Text="{Binding Address}"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>
