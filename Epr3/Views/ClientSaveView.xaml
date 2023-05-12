@@ -26,7 +26,7 @@
             Placeholder="Observation"
             Text="{Binding }"/>
         <Button
-            Text="Add"
+            Text="Save Client"
             Command="{Binding }"/>
         </VerticalStackLayout>
 </ContentPage>
