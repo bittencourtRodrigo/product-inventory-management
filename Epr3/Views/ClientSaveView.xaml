@@ -27,6 +27,6 @@
             Text="{Binding }"/>
         <Button
             Text="Save Client"
-            Command="{Binding }"/>
+            Command="{Binding ClientSave }"/>
         </VerticalStackLayout>
 </ContentPage>

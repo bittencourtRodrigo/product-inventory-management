@@ -20,6 +20,7 @@ namespace Epr3.Data
 
         public async Task ClientSaveAsync(CatalogClientModel client)
         {
+            await Init();
             await Database.InsertAsync(client);
         }
     }
