@@ -21,17 +21,17 @@
                             <Grid ColumnDefinitions="20, *, Auto" RowDefinitions="Auto, Auto" Padding="5">
                                 <Label
                                     Grid.Column="0"
-                                    Text="{Binding Id}"/>
+                                    Text="{Binding }"/>
                                 <Label
                                     Grid.Column="1"
-                                    text="{Binding Name}"/>
+                                    text="{Binding }"/>
                                 <Label
                                     Grid.Column="2"
-                                    Text="{Binding RegisterFiJu}"/>
+                                    Text="{Binding }"/>
                                 <Label
                                     Grid.ColumnSpan="3"
                                     Grid.Row="1"
-                                    Text="{Binding Address}"/>
+                                    Text="{Binding }"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
