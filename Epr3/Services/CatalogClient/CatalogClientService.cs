@@ -1,10 +1,10 @@
-﻿namespace Epr3.Services.Client
+﻿using Epr3.Data;
+using Epr3.Models;
+
+namespace Epr3.Services.CatalogClient
 {
-    public class ClientService : IClientService
+    public class CatalogClientService : ICatalogClientService
     {
-        public async Task ClientSave()
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

@@ -14,11 +14,11 @@ namespace Epr3.Data
 
             Database = new SQLiteAsyncConnection(SqliteConstants.DatabasePath, SqliteConstants.Flags);
             await Database.CreateTableAsync<Product>();
-            await Database.CreateTableAsync<ClientCatalog>();
+            await Database.CreateTableAsync<CatalogClientModel>();
             await Database.CreateTableAsync<Provider>();
         }
 
-        public async Task ClientSave(ClientCatalog client)
+        public async Task ClientSave(CatalogClientModel client)
         {
             await Database.InsertAsync(client);
         }
