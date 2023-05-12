@@ -6,27 +6,27 @@
     <VerticalStackLayout Padding="15">
         <Entry
             Placeholder="Name"
-            Text="{Binding }"/>
+            Text="{Binding Client.Name }"/>
         <Entry
             Placeholder="CPF or CNPJ"
-            Text="{Binding }"/>
+            Text="{Binding Client.RegisterPerson }"/>
         <Entry
             Placeholder="Email"
-            Text="{Binding }"/>
+            Text="{Binding Client.Email }"/>
         <Entry
             Placeholder="Address"
-            Text="{Binding }"/>
+            Text="{Binding Client.Address }"/>
         <Entry
             Placeholder="Reference Point"
-            Text="{Binding }"/>
+            Text="{Binding Client.ReferencePoint }"/>
         <Entry
             Placeholder="Telephone"
-            Text="{Binding }"/>
+            Text="{Binding Client.Telephone }"/>
         <Entry
             Placeholder="Observation"
-            Text="{Binding }"/>
+            Text="{Binding Client.Observation }"/>
         <Button
             Text="Save Client"
-            Command="{Binding ClientSave }"/>
-        </VerticalStackLayout>
+            Command="{Binding ClientSaveAsyncCommand}"/>
+    </VerticalStackLayout>
 </ContentPage>
