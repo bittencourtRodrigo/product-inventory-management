@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Epr3.Views.ClientSaveView"
+             Title="ClientSaveView">
+    <VerticalStackLayout Padding="15">
+        <Entry
+            Placeholder="Name"
+            Text="{Binding }"/>
+        <Entry
+            Placeholder="CPF or CNPJ"
+            Text="{Binding }"/>
+        <Entry
+            Placeholder="Email"
+            Text="{Binding }"/>
+        <Entry
+            Placeholder="Address"
+            Text="{Binding }"/>
+        <Entry
+            Placeholder="Reference Point"
+            Text="{Binding }"/>
+        <Entry
+            Placeholder="Telephone"
+            Text="{Binding }"/>
+        <Entry
+            Placeholder="Observation"
+            Text="{Binding }"/>
+        <Button
+            Text="Add"
+            Command="{Binding }"/>
+        </VerticalStackLayout>
+</ContentPage>
