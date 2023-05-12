@@ -7,9 +7,19 @@ namespace Epr3.Services.ClientSave
     {
         private readonly SqliteDatabase _database;
 
-        public async Task ClientSaveAsync(CatalogClientModel catalogClient)
+        public ClientSaveService(SqliteDatabase database)
         {
-            await _database.ClientSaveAsync(catalogClient);
+            _database = database;
+        }
+
+        public async Task ClientSaveAsync(CatalogClientModel client)
+        {
+            await _database.Init();
+
+            if (client.Id == 0)
+                await _database.Database.InsertAsync(client);
+            else
+                await _database.Database.UpdateAsync(client);
         }
     }
 }

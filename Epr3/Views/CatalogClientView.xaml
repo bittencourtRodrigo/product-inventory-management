@@ -9,29 +9,29 @@
                 <SearchBar
                     Grid.Row="0"
                     Placeholder="Serach here..."
-                    Text="{Binding }"/>
+                    Text=""/>
                 <Button
-                    Text="AddClient"
-                    Command="{Binding }"/>
+                    Text="New Client"
+                    Command="{Binding ClientEditCommand}"/>
             </HorizontalStackLayout>
-            <ListView ItemsSource="{Binding ClientList}" ItemTapped="ListView_ItemTapped">
+            <ListView ItemsSource="{Binding ClientList}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <Grid ColumnDefinitions="20, *, Auto" RowDefinitions="Auto, Auto" Padding="5">
                                 <Label
                                     Grid.Column="0"
-                                    Text="{Binding ClientList.Name}"/>
+                                    Text="{Binding Name}"/>
                                 <Label
                                     Grid.Column="1"
-                                    Text="{Binding ClientList.RegisterPerson}"/>
+                                    Text="{Binding RegisterPerson}"/>
                                 <Label
                                     Grid.Column="2"
-                                    Text="{Binding ClientList.Address}"/>
+                                    Text="{Binding Address}"/>
                                 <Label
                                     Grid.ColumnSpan="3"
                                     Grid.Row="1"
-                                    Text="{Binding ClientList.Email}"/>
+                                    Text="{Binding Email}"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

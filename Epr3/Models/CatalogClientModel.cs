@@ -15,6 +15,8 @@ namespace Epr3.Models
         public string Name { get; set; }
         public string Telephone { get; set; }
 
+        public CatalogClientModel() { }
+
         public CatalogClientModel(long uid, string registerPerson, string email, string address
             , string observation, string referencePoint, string name, string telephone)
         {

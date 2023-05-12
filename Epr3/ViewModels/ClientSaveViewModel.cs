@@ -7,20 +7,26 @@ namespace Epr3.ViewModels
 {
     public partial class ClientSaveViewModel : ObservableObject
     {
-        private readonly IClientSaveService _clientService;
+        private readonly IClientSaveService _clientSaveService;
 
         [ObservableProperty]
         private CatalogClientModel _client;
 
         public ClientSaveViewModel(IClientSaveService clientService)
         {
-            _clientService = clientService;
+            _clientSaveService = clientService;
+            _client = new CatalogClientModel();
         }
         
         [RelayCommand]
         private async Task ClientSaveAsync()
         {
-            await _clientService.ClientSaveAsync(Client);
+            if (Client.Name == null || Client.RegisterPerson == null)
+            {
+                await App.Current.MainPage.DisplayAlert("Alert", $"{nameof(Client.Name)} and {nameof(Client.RegisterPerson)} cannot be empyt.", "CLose");
+                return;
+            }
+            await _clientSaveService.ClientSaveAsync(Client);
         }
     }
 }

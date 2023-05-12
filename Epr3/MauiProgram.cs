@@ -1,4 +1,11 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Epr3.Data;
+using Epr3.Models;
+using Epr3.Services.CatalogClient;
+using Epr3.Services.ClientSave;
+using Epr3.Services.Navigation;
+using Epr3.ViewModels;
+using Epr3.Views;
+using Microsoft.Extensions.Logging;
 
 namespace Epr3;
 
@@ -6,19 +13,30 @@ public static class MauiProgram
 {
 	public static MauiApp CreateMauiApp()
 	{
-		var builder = MauiApp.CreateBuilder();
-		builder
-			.UseMauiApp<App>()
-			.ConfigureFonts(fonts =>
-			{
-				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-			});
+        var builder = MauiApp.CreateBuilder();
+        builder
+            .UseMauiApp<App>()
+            .ConfigureFonts(fonts =>
+            {
+                fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+            });
 
 #if DEBUG
-		builder.Logging.AddDebug();
+        builder.Logging.AddDebug();
 #endif
+        builder.Services.AddSingleton<INavigationService, NavigationService>();
+        builder.Services.AddSingleton<IClientSaveService, ClientSaveService>();
+        builder.Services.AddSingleton<ICatalogClientService, CatalogClientService>();
 
-		return builder.Build();
+        builder.Services.AddSingleton<SqliteDatabase>();
+
+        builder.Services.AddSingleton<CatalogClientViewModel>();
+        builder.Services.AddSingleton<CatalogClientView>();
+
+        builder.Services.AddSingleton<ClientSaveViewModel>();
+        builder.Services.AddSingleton<ClientSaveView>();
+
+        return builder.Build();
 	}
 }

@@ -3,5 +3,6 @@ namespace Epr3.Services.CatalogClient
 {
     public interface ICatalogClientService
     {
+        Task<List<CatalogClientModel>> ClientGetALl();
     }
 }

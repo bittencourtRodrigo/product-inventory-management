@@ -27,6 +27,6 @@
             Text="{Binding Client.Observation }"/>
         <Button
             Text="Save Client"
-            Command="{Binding ClientSaveAsyncCommand}"/>
+            Command="{Binding ClientSaveCommand}"/>
     </VerticalStackLayout>
 </ContentPage>
