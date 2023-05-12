@@ -8,18 +8,18 @@ namespace Epr3.ViewModels
         private readonly IClientService _clientService;
 
         [ObservableProperty]
-        private Client _clientList;
-
-        [RelayCommand]
-        void SaveClient()
-        {
-            _clientService.ClientSave(ClientList);
-        }
+        private Client _client;
 
         public ClientSaveViewModel(IClientService clientService)
         {
             _clientService = clientService;
-            ClientList = new ClientList();
+            
+        }
+        
+        [RelayCommand]
+        private void SaveClient()
+        {
+            _clientService.ClientSave(Client);
         }
     }
 }

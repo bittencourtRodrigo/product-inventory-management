@@ -54,14 +54,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Data\" />
 	  <Folder Include="Models\" />
-	  <Folder Include="Services\" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <Compile Update="Views\CatalogClientView.xaml.cs">
 	    <DependentUpon>CatalogClientView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\CatalogProductView.xaml.cs">
+	    <DependentUpon>CatalogProductView.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
@@ -75,7 +76,7 @@
 	  <MauiXaml Update="Views\ProductSaveView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ProductsView.xaml">
+	  <MauiXaml Update="Views\CatalogProductView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
