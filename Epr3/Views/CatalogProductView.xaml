@@ -9,12 +9,12 @@
                 <SearchBar
                     Grid.Row="0"
                     Placeholder="Serach here..."
-                    Text="{Binding }"/>
+                    Text=""/>
                 <Button
                     Text="AddItem"
                     Command="{Binding ProductEditCommand}"/>
             </HorizontalStackLayout>
-            <CollectionView ItemsSource="{Binding }">
+            <CollectionView ItemsSource="{Binding ProductList}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, Auto" Padding="5">
@@ -23,16 +23,16 @@
                                 Grid.Row="0"
                                 FontAttributes="Bold"
                                 FontSize="17"
-                                Text="{Binding }"/>
+                                Text="{Binding Name}"/>
                             <Label
                                 Grid.Column="0"
                                 Grid.Row="1"
                                 FontSize="15"
-                                Text="{Binding }"/>
+                                Text="{Binding SalePrice}"/>
                             <Label
                                 Grid.Column="1"
                                 Grid.Row="1"
-                                Text="{Binding }"/>
+                                Text="{Binding CurrentInventory}"/>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
