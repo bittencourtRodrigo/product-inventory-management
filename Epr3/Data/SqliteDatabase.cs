@@ -13,7 +13,6 @@ namespace Epr3.Data
                 return;
 
             Database = new SQLiteAsyncConnection(SqliteConstants.DatabasePath, SqliteConstants.Flags);
-            await Database.CreateTableAsync<CatalogClientModel>();
             await Database.CreateTableAsync<CatalogProductModel>();
         }
     }

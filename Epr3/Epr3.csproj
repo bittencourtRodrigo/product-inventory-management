@@ -56,21 +56,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Views\CatalogClientView.xaml.cs">
-	    <DependentUpon>CatalogClientView.xaml</DependentUpon>
-	  </Compile>
 	  <Compile Update="Views\CatalogProductView.xaml.cs">
 	    <DependentUpon>CatalogProductView.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\ClientSaveView.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\CatalogClientView.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="Views\ProductSaveView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

@@ -1,9 +1,7 @@
 ﻿using Epr3.Data;
-using Epr3.Models;
-using Epr3.Services.CatalogClient;
 using Epr3.Services.CatalogProduct;
-using Epr3.Services.ClientSave;
 using Epr3.Services.Navigation;
+using Epr3.Services.ProductSave;
 using Epr3.ViewModels;
 using Epr3.Views;
 using Microsoft.Extensions.Logging;
@@ -27,18 +25,11 @@ public static class MauiProgram
         builder.Logging.AddDebug();
 #endif
         builder.Services.AddSingleton<INavigationService, NavigationService>();
-        builder.Services.AddSingleton<IClientSaveService, ClientSaveService>();
-        builder.Services.AddSingleton<ICatalogClientService, CatalogClientService>();
         builder.Services.AddSingleton<ICatalogProductService, CatalogProductService>();
+        builder.Services.AddSingleton<IProductSaveService, ProductSaveService>();
 
         builder.Services.AddSingleton<SqliteDatabase>();
 
-        builder.Services.AddSingleton<CatalogClientViewModel>();
-        builder.Services.AddSingleton<CatalogClientView>();
-
-        builder.Services.AddSingleton<ClientSaveViewModel>();
-        builder.Services.AddSingleton<ClientSaveView>();
-        
         builder.Services.AddSingleton<CatalogProductViewModel>();
         builder.Services.AddSingleton<CatalogProductView>();
 
