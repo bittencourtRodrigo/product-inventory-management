@@ -2,11 +2,6 @@
 using CommunityToolkit.Mvvm.Input;
 using Epr3.Models;
 using Epr3.Services.ProductSave;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Epr3.ViewModels
 {
@@ -31,7 +26,10 @@ namespace Epr3.ViewModels
                 await App.Current.MainPage.DisplayAlert("Alert", $"{nameof(Product.Name)} cannot be empyt.", "CLose");
                 return;
             }
+
             await _productSaveService.ProductSaveAsync(Product);
+            await App.Current.MainPage.DisplayAlert("Alert", $"{Product.Name} was saved.", "Close");
+            await Shell.Current.GoToAsync("..");
         }
     }
 }

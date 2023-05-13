@@ -2,14 +2,16 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Epr3.Views.ProductSaveView"
-             Title="ProductSaveView">
+             Title="SaveView">
     <VerticalStackLayout Padding="15">
         <Entry
             Placeholder="Name"
-            Text="{Binding Product.Name }"/>
+            Text="{Binding Product.Name}"
+            ClearButtonVisibility="WhileEditing"
+            IsSpellCheckEnabled="false"/>
         <Entry
             Placeholder="Current Inventory"
-            Text="{Binding Product.CurrentInventory }"/>
+            Text="{Binding Product.CurrentInventory}"/>
         <Entry
             Placeholder="Barcode"
             Text="{Binding Product.Barcode}"/>
@@ -21,12 +23,14 @@
             Text="{Binding Product.SalePrice}"/>
         <Entry
             Placeholder="Store Location"
-            Text="{Binding Product.StoreLocation}"/>
+            Text="{Binding Product.StoreLocation}"
+            ClearButtonVisibility="WhileEditing"/>
         <Entry
             Placeholder="Observation"
-            Text="{Binding Product.Observation}"/>
+            Text="{Binding Product.Observation}"
+            ClearButtonVisibility="WhileEditing"/>
         <Button
-            Text="Save product"
+            Text="Save"
             Command="{Binding ProductSaveCommand}"/>
     </VerticalStackLayout>
 </ContentPage>

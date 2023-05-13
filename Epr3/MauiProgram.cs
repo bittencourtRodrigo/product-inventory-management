@@ -30,14 +30,14 @@ public static class MauiProgram
 
         builder.Services.AddSingleton<SqliteDatabase>();
 
-        builder.Services.AddSingleton<CatalogProductViewModel>();
-        builder.Services.AddSingleton<CatalogProductView>();
+        builder.Services.AddTransient<CatalogProductViewModel>();
+        builder.Services.AddTransient<CatalogProductView>();
 
-        builder.Services.AddSingleton<ProductSaveViewModel>();
-        builder.Services.AddSingleton<ProductSaveView>();
+        builder.Services.AddTransient<ProductSaveViewModel>();
+        builder.Services.AddTransient<ProductSaveView>();
         
-        builder.Services.AddSingleton<HomeViewModel>();
-        builder.Services.AddSingleton<HomeView>();
+        builder.Services.AddTransient<HomeViewModel>();
+        builder.Services.AddTransient<HomeView>();
 
         return builder.Build();
 	}
