@@ -13,7 +13,6 @@ namespace Epr3.ViewModels
         private readonly INavigationService _navigationService;
         private readonly ICatalogProductService _catalogProductService;
 
-
         [ObservableProperty]
         ObservableCollection<CatalogProductModel> _productList;
 

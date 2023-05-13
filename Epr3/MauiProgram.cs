@@ -35,6 +35,9 @@ public static class MauiProgram
 
         builder.Services.AddSingleton<ProductSaveViewModel>();
         builder.Services.AddSingleton<ProductSaveView>();
+        
+        builder.Services.AddSingleton<HomeViewModel>();
+        builder.Services.AddSingleton<HomeView>();
 
         return builder.Build();
 	}
