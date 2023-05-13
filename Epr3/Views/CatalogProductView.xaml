@@ -12,7 +12,7 @@
                     Text="{Binding }"/>
                 <Button
                     Text="AddItem"
-                    Command="{Binding }"/>
+                    Command="{Binding ProductEditCommand}"/>
             </HorizontalStackLayout>
             <CollectionView ItemsSource="{Binding }">
                 <CollectionView.ItemTemplate>

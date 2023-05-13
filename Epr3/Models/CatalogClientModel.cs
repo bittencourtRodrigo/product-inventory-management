@@ -6,7 +6,7 @@ namespace Epr3.Models
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        public long Uid { get; set; }
+        public string Uid { get; set; }
         public string RegisterPerson { get; set; } // CPF/CNPJ
         public string Email { get; set; }
         public string Address { get; set; }
@@ -17,7 +17,7 @@ namespace Epr3.Models
 
         public CatalogClientModel() { }
 
-        public CatalogClientModel(long uid, string registerPerson, string email, string address
+        public CatalogClientModel(string uid, string registerPerson, string email, string address
             , string observation, string referencePoint, string name, string telephone)
         {
             Uid = uid;

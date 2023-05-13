@@ -4,6 +4,6 @@ namespace Epr3.Services.ClientSave
 {
     public interface IClientSaveService
     {
-        Task ClientSaveAsync(CatalogClientModel catalogClient);
+        Task ClientSaveAsync(CatalogClientModel client);
     }
 }

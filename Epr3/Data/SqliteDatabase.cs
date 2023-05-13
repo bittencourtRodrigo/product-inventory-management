@@ -14,6 +14,7 @@ namespace Epr3.Data
 
             Database = new SQLiteAsyncConnection(SqliteConstants.DatabasePath, SqliteConstants.Flags);
             await Database.CreateTableAsync<CatalogClientModel>();
+            await Database.CreateTableAsync<CatalogProductModel>();
         }
     }
 }

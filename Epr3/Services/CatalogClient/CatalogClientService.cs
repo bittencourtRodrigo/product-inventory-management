@@ -11,7 +11,7 @@ namespace Epr3.Services.CatalogClient
         {
             _database = database;
         }
-        public async Task<List<CatalogClientModel>> ClientGetALl()
+        public async Task<List<CatalogClientModel>> ClientGetAll()
         {
             await _database.Init();
             return await _database.Database.Table<CatalogClientModel>().ToListAsync();

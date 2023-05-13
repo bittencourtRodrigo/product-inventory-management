@@ -6,27 +6,27 @@
     <VerticalStackLayout Padding="15">
         <Entry
             Placeholder="Name"
-            Text="{Binding }"/>
+            Text="{Binding Product.Name }"/>
         <Entry
             Placeholder="Current Inventory"
-            Text="{Binding }"/>
+            Text="{Binding Product.CurrentInventory }"/>
         <Entry
             Placeholder="Barcode"
-            Text="{Binding }"/>
+            Text="{Binding Product.Barcode}"/>
         <Entry
             Placeholder="Cost Price"
-            Text="{Binding }"/>
+            Text="{Binding Product.CostPrice}"/>
         <Entry
             Placeholder="Sale Price"
-            Text="{Binding }"/>
+            Text="{Binding Product.SalePrice}"/>
         <Entry
             Placeholder="Store Location"
-            Text="{Binding }"/>
+            Text="{Binding Product.StoreLocation}"/>
         <Entry
             Placeholder="Observation"
-            Text="{Binding }"/>
+            Text="{Binding Product.Observation}"/>
         <Button
             Text="Save product"
-            Command="{Binding }"/>
+            Command="{Binding ProductSaveCommand}"/>
     </VerticalStackLayout>
 </ContentPage>

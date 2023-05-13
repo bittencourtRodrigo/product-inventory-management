@@ -15,7 +15,7 @@ namespace Epr3.ViewModels
         public ClientSaveViewModel(IClientSaveService clientService)
         {
             _clientSaveService = clientService;
-            _client = new CatalogClientModel();
+            Client = new CatalogClientModel();
         }
         
         [RelayCommand]

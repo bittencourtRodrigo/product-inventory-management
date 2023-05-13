@@ -8,7 +8,7 @@
 
     <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate local:Views.CatalogClientView}"
-        Route="CatalogClientView" />
+        ContentTemplate="{DataTemplate local:Views.CatalogProductView}"
+        Route="CatalogProductView" />
 
 </Shell>
