@@ -8,7 +8,7 @@ public partial class AppShell : Shell
 	{
 		InitializeComponent();
 
-		Routing.RegisterRoute(nameof(ProductSaveView), typeof(ProductSaveView));
+		Routing.RegisterRoute(nameof(ProductView), typeof(ProductView));
 		Routing.RegisterRoute(nameof(CatalogProductView), typeof(CatalogProductView));
 		Routing.RegisterRoute(nameof(HomeView), typeof(HomeView));
 	}

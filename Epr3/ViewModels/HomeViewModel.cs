@@ -20,9 +20,9 @@ namespace Epr3.ViewModels
         }
 
         [RelayCommand]
-        public async Task NavigateToProductSaveViewAsync()
+        public async Task NavigateToProductViewAsync()
         {
-            await _navigationService.NavigateToAsync(nameof(ProductSaveView));
+            await _navigationService.NavigateToAsync(nameof(ProductView));
         }
     }
 }

@@ -16,7 +16,7 @@
             Grid.Column="1"
             Grid.Row="0"
             Source="add.png"
-            Command="{Binding NavigateToProductSaveViewCommand}"
+            Command="{Binding NavigateToProductViewCommand}"
             HeightRequest="70"
             WidthRequest="70"
             />

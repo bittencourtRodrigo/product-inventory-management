@@ -8,15 +8,15 @@ using Epr3.Views;
 namespace Epr3.ViewModels
 {
     [QueryProperty(nameof(Product), nameof(CatalogProductModel))]
-    public partial class ProductSaveViewModel : ObservableObject
+    public partial class ProductViewModel : ObservableObject
     {
-        private readonly IProductSaveService _productSaveService;
+        private readonly IProductService _productSaveService;
         private readonly INavigationService _navigationService;
 
         [ObservableProperty]
         private CatalogProductModel _product;
 
-        public ProductSaveViewModel(IProductSaveService productService, INavigationService navigationService)
+        public ProductViewModel(IProductService productService, INavigationService navigationService)
         {
             _productSaveService = productService;
             _navigationService = navigationService;
