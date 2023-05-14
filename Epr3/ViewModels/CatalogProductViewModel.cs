@@ -23,12 +23,6 @@ namespace Epr3.ViewModels
             ProductGetAll();
         }
 
-        [RelayCommand]
-        private async Task ProductEditAsync()
-        {
-            await _navigationService.NavigateToAsync(nameof(ProductSaveView));
-        }
-
         private async void ProductGetAll()
         {
             ProductList = new ObservableCollection<CatalogProductModel>(await _catalogProductService.ProductGetAll());

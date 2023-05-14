@@ -2,41 +2,40 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Epr3.Views.CatalogProductView"
-             Title="CatalogProductView">
+             Shell.BackgroundColor="Blue"
+             Title="Catalog">
     <ScrollView>
         <StackLayout>
-            <HorizontalStackLayout>
-                <SearchBar
-                    Grid.Row="0"
-                    Placeholder="Serach here..."
-                    Text=""/>
-                <Button
-                    Text="AddItem"
-                    Command="{Binding ProductEditCommand}"/>
-            </HorizontalStackLayout>
-            <CollectionView ItemsSource="{Binding ProductList}">
-                <CollectionView.ItemTemplate>
+            <SearchBar
+            HorizontalOptions="Center"
+            Grid.Row="0"
+            Placeholder="Serach here..."
+            Text=""/>
+            <ListView ItemsSource="{Binding ProductList}" SelectionMode="None" VerticalScrollBarVisibility="Never">
+                <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, Auto" Padding="5">
-                            <Label
+                        <ViewCell>
+                            <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, Auto">
+                                <Label
                                 Grid.Column="0"
                                 Grid.Row="0"
                                 FontAttributes="Bold"
                                 FontSize="17"
                                 Text="{Binding Name}"/>
-                            <Label
+                                <Label
                                 Grid.Column="0"
                                 Grid.Row="1"
                                 FontSize="15"
                                 Text="{Binding SalePrice}"/>
-                            <Label
+                                <Label
                                 Grid.Column="1"
                                 Grid.Row="1"
                                 Text="{Binding CurrentInventory}"/>
-                        </Grid>
+                            </Grid>
+                        </ViewCell>
                     </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ScrollView>
 </ContentPage>

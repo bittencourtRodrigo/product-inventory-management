@@ -28,7 +28,7 @@ namespace Epr3.ViewModels
             }
 
             await _productSaveService.ProductSaveAsync(Product);
-            await App.Current.MainPage.DisplayAlert("Alert", $"{Product.Name} was saved.", "Close");
+            await App.Current.MainPage.DisplayAlert("Alert", $"{Product.Name} was saved locally.", "Close");
             await Shell.Current.GoToAsync("..");
         }
     }
