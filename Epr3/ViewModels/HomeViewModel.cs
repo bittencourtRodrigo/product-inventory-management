@@ -24,5 +24,11 @@ namespace Epr3.ViewModels
         {
             await _navigationService.NavigateToAsync(nameof(ProductView));
         }
+
+        [RelayCommand]
+        public async Task NavigateToDownProductViewAsync()
+        {
+            await _navigationService.NavigateToAsync(nameof(DownProductView));
+        }
     }
 }

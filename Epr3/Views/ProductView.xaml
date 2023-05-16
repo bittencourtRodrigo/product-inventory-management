@@ -12,16 +12,20 @@
             IsSpellCheckEnabled="false"/>
         <Entry
             Placeholder="Current Inventory"
-            Text="{Binding Product.CurrentInventory}"/>
+            Text="{Binding Product.CurrentInventory}"
+            Keyboard="Numeric"/>
         <Entry
             Placeholder="Barcode"
-            Text="{Binding Product.Barcode}"/>
+            Text="{Binding Product.Barcode}"
+            Keyboard="Numeric"/>
         <Entry
             Placeholder="Cost Price"
-            Text="{Binding Product.CostPrice}"/>
+            Text="{Binding Product.CostPrice}"
+            Keyboard="Numeric"/>
         <Entry
             Placeholder="Sale Price"
-            Text="{Binding Product.SalePrice}"/>
+            Text="{Binding Product.SalePrice}"
+            Keyboard="Numeric"/>
         <Entry
             Placeholder="Store Location"
             Text="{Binding Product.StoreLocation}"

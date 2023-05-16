@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:listViewLocal="clr-namespace:Epr3.Helpers.BindableProperties"
+             x:Class="Epr3.Views.DownProductView"
+             Shell.BackgroundColor="Blue"
+             Title="Down inventory">
+
+    <Grid RowDefinitions="Auto, 200, Auto, *, 50" 
+          ColumnDefinitions="*">
+        <Grid Grid.Row="0" Grid.Column="0">
+            <SearchBar
+                WidthRequest="300"
+                x:Name="SearchBarX"
+                Text=""
+                Placeholder="Search for any ProductList feature. Ex: name, bar code."/>
+        </Grid>
+
+        <Grid Grid.Row="1"  Grid.Column="0">
+            <ScrollView>
+                <listViewLocal:CustomListView ItemsSource="{Binding ProductList}" ItemTappedCommand="{Binding TapItemProductListCommand}" VerticalScrollBarVisibility="Never">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, Auto">
+                                    <Label
+                                Grid.Column="0"
+                                Grid.Row="0"
+                                FontAttributes="Bold"
+                                FontSize="17"
+                                Text="{Binding Name}"/>
+                                    <Label
+                                Grid.Column="0"
+                                Grid.Row="1"
+                                FontSize="15"
+                                Text="{Binding SalePrice}"/>
+                                    <Label
+                                Grid.Column="1"
+                                Grid.Row="1"
+                                Text="{Binding CurrentInventory}"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </listViewLocal:CustomListView>
+            </ScrollView>
+        </Grid>
+        <Grid  Grid.Row="2" Grid.Column="0" ColumnDefinitions="*, auto, 25, auto">
+            <Label
+                Grid.Column="0"
+                FontAttributes="Bold"
+                Text="NAME"/>
+            <Label
+                Grid.Column="1"
+                FontAttributes="Bold"
+                Text="AMT CURRENT"/>
+            <Label
+                Grid.Column="3"
+                FontAttributes="Bold"
+                Text="DOWN AMT"/>
+
+        </Grid>
+        <Grid Grid.Row="3">
+            <ScrollView>
+                <listViewLocal:CustomListView ItemsSource="{Binding RemoveProductList}" ItemTappedCommand="{Binding TapItemRemoveProductListCommand}" VerticalScrollBarVisibility="Never">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid ColumnDefinitions="*, auto, 90, auto">
+                                    <Label
+                                        VerticalTextAlignment="Center"
+                                        Grid.Column="0"
+                                        VerticalOptions="Center"
+                                        Text="{Binding Name}"/>
+                                    <Label
+                                        Text="{Binding CurrentInventory}"
+                                        VerticalOptions="Center"
+                                        Grid.Column="1"/>
+                                    <Entry
+                                        Text="{Binding QuantityBasket}"
+                                        VerticalOptions="Center"
+                                        Keyboard="Numeric"
+                                        Grid.Column="3"
+                                        MinimumHeightRequest="0"
+                                        HeightRequest="40"
+                                        FontSize="17"
+                                        Placeholder="AMT"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </listViewLocal:CustomListView>
+            </ScrollView>
+        </Grid>
+        <Grid Grid.Row="4">
+            <Button
+                Text="Conclude"
+                BackgroundColor="Blue"
+                Command="{Binding ConcludeCommand}"/>
+        </Grid>
+    </Grid>
+</ContentPage>

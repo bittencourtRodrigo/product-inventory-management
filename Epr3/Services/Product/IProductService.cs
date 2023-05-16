@@ -7,5 +7,6 @@ namespace Epr3.Services.ProductSave
         Task ProductSaveAsync(CatalogProductModel product);
         Task ProductDeleteAsync(CatalogProductModel product);
         Task<List<CatalogProductModel>> ProductGetAllAsync();
+        Task ProductDownInventoryAsync(List<BasketProductModel> products);
     }
 }

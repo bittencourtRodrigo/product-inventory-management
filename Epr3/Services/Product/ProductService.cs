@@ -33,5 +33,16 @@ namespace Epr3.Services.ProductSave
             return await _database.Database.Table<CatalogProductModel>().ToListAsync();
         }
 
+        public async Task ProductDownInventoryAsync(List<BasketProductModel> products)
+        {
+            await _database.Init();
+            foreach (var product in products)
+            {
+                double? newAmount = product.CurrentInventory - product.QuantityBasket;
+                var oldProduct = await _database.Database.Table<CatalogProductModel>().FirstAsync(x => x.Id == product.Id);
+                oldProduct.CurrentInventory = newAmount;
+                await ProductSaveAsync(oldProduct);
+            }
+        }
     }
 }

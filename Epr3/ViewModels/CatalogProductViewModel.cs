@@ -6,7 +6,6 @@ using Epr3.Services.Navigation;
 using Epr3.Services.ProductSave;
 using Epr3.Views;
 using System.Collections.ObjectModel;
-using static Android.Content.ClipData;
 
 namespace Epr3.ViewModels
 {
@@ -22,10 +21,10 @@ namespace Epr3.ViewModels
         {
             _navigationService = navigationService;
             _productService = productService;
-            ProductGetAll();
+            NewLists();
         }
 
-        private async void ProductGetAll()
+        private async void NewLists()
         {
             ProductList = new ObservableCollection<CatalogProductModel>(await _productService.ProductGetAllAsync());
         }
@@ -35,22 +34,20 @@ namespace Epr3.ViewModels
         {
             var item = (CatalogProductModel)itemTapped;
             var choice = await Shell.Current.DisplayActionSheet(item.Name, "Cancel", null, new string[] { nameof(ChoiceItemCatalog.Edit), nameof(ChoiceItemCatalog.Delete) });
-
             var actions = new Dictionary<string, Func<Task>>
             {
                 { nameof(ChoiceItemCatalog.Edit), async () => await _navigationService.NavigateToAsync(nameof(ProductView), new Dictionary<string, object>() { { nameof(CatalogProductModel), item } }) },
-                { nameof(ChoiceItemCatalog.Delete), async () => await ProductDelete(item)}
+                { nameof(ChoiceItemCatalog.Delete), async () => await DeleteAsync(item)}
             };
-
             if (actions.ContainsKey(choice))
             {
                 await actions[choice]();
             }
         }
 
-        private async Task ProductDelete(CatalogProductModel item)
+        private async Task DeleteAsync(CatalogProductModel item)
         {
-            var choice = await Shell.Current.DisplayActionSheet($"ALERT! {item.Name} will be deleted.", "Cancel", null, new string[] { nameof(ChoiceItemCatalog.Delete) });
+            var choice = await Shell.Current.DisplayActionSheet($"ALERT! '{item.Name}' will be deleted.", "Cancel", null, new string[] { nameof(ChoiceItemCatalog.Delete) });
             if (choice != nameof(ChoiceItemCatalog.Delete))
                 return;
             await _productService.ProductDeleteAsync(item);
