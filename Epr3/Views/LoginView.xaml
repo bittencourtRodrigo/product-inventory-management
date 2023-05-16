@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Epr3.Views.LoginView"
+             Shell.BackgroundColor="Blue"
+             Title="Login">
+
+    <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="Auto, *">
+            <Grid
+                Padding="20,50,20,0"
+                HorizontalOptions="FillAndExpand"
+                RowSpacing="20"
+                VerticalOptions="FillAndExpand"
+                RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto">
+                <Entry
+                    Grid.Row="0"
+                    Margin="0,20,0,0"
+                    HorizontalOptions="FillAndExpand"
+                    Placeholder="Username"
+                    Text="{Binding UserName}"
+                    VerticalOptions="FillAndExpand" />
+                <Entry
+                    Grid.Row="1"
+                    HorizontalOptions="FillAndExpand"
+                    IsPassword="True"
+                    Placeholder="Password"
+                    Text="{Binding UserPassword}"
+                    VerticalOptions="FillAndExpand" />
+                <Button
+                    Grid.Row="2"
+                    BackgroundColor="Blue"
+                    Command="{Binding LoginCommand}"
+                    CornerRadius="20"
+                    Text="Login" />
+                <Button
+                    Grid.Row="3"
+                    BackgroundColor="#1C375C"
+                    Command="{Binding RegisterCommand}"
+                    CornerRadius="20"
+                    Text="Register" />
+                <Label
+                    Grid.Row="4"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="or continue with" />
+                <StackLayout Grid.Row="5" HorizontalOptions="CenterAndExpand" Orientation="Horizontal" Spacing="20">
+                    <ImageButton
+                        Source="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-icon-png-transparent-background-osteopathy-16.png"
+                        MaximumHeightRequest="40"/>
+                    <ImageButton
+                        Source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo626DNKJxdHM-VNRD0m7x_8Jim-r9kRalJQ"
+                        MaximumHeightRequest="40"/>
+                </StackLayout>
+
+                <Button
+                    Grid.Row="6"
+                    FontAttributes="Bold"
+                    TextColor="DarkRed"
+                    BackgroundColor="Transparent"
+                    HorizontalOptions="CenterAndExpand"
+                    Command="{Binding ForgotPasswordCommand}"
+                    Text="Forgot password" />
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

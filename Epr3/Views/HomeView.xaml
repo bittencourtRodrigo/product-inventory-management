@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Epr3.Views.HomeView"
              Shell.NavBarIsVisible="False">
-    <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, *, *" Padding="0,25,15,0">
+    <Grid RowDefinitions="Auto, Auto, Auto, Auto" ColumnDefinitions="*, *, *" Padding="0,25,15,0">
         <ImageButton
             Grid.Column="0"
             Grid.Row="0"
@@ -28,6 +28,23 @@
             HeightRequest="70"
             WidthRequest="70"
             />
+        <ImageButton
+            Grid.Column="1"
+            Grid.Row="2"
+            Source="basket.png"
+            Command="{Binding NavigateToCloudManagerViewCommand}"
+            HeightRequest="70"
+            WidthRequest="70"
+            />
+        <ImageButton
+            Grid.Column="0"
+            Grid.Row="2"
+            Source="basket.png"
+            Command="{Binding NavigateToLoginViewCommand}"
+            HeightRequest="70"
+            WidthRequest="70"
+            />
+        
         <Label
             Text="Catalog"
             Grid.Row="1"
@@ -44,6 +61,18 @@
             Text="Down Inventory"
             Grid.Row="1"
             Grid.Column="2"
+            HorizontalOptions="Center"
+            />
+        <Label
+            Text="Cloud Manager"
+            Grid.Row="3"
+            Grid.Column="0"
+            HorizontalOptions="Center"
+            />
+        <Label
+            Text="Login"
+            Grid.Row="3"
+            Grid.Column="1"
             HorizontalOptions="Center"
             />
         

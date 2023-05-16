@@ -39,6 +39,12 @@ public static class MauiProgram
         
         builder.Services.AddTransient<DownProductViewModel>();
         builder.Services.AddTransient<DownProductView>();
+        
+        builder.Services.AddTransient<LoginViewModel>();
+        builder.Services.AddTransient<LoginView>();
+        
+        builder.Services.AddTransient<CloudManagerViewModel>();
+        builder.Services.AddTransient<CloudManagerView>();
 
         return builder.Build();
 	}

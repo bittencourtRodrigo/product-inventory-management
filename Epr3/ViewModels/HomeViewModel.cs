@@ -30,5 +30,18 @@ namespace Epr3.ViewModels
         {
             await _navigationService.NavigateToAsync(nameof(DownProductView));
         }
+        
+        [RelayCommand]
+        public async Task NavigateToLoginViewAsync()
+        {
+            await _navigationService.NavigateToAsync(nameof(LoginView));
+        }
+        
+        [RelayCommand]
+        public async Task NavigateToCloudManagerViewAsync()
+        {
+            await _navigationService.NavigateToAsync(nameof(CloudManagerView));
+        }
+
     }
 }
