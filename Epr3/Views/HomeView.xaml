@@ -29,22 +29,14 @@
             WidthRequest="70"
             />
         <ImageButton
-            Grid.Column="1"
+            Grid.Column="0"
             Grid.Row="2"
             Source="basket.png"
             Command="{Binding NavigateToCloudManagerViewCommand}"
             HeightRequest="70"
             WidthRequest="70"
             />
-        <ImageButton
-            Grid.Column="0"
-            Grid.Row="2"
-            Source="basket.png"
-            Command="{Binding NavigateToLoginViewCommand}"
-            HeightRequest="70"
-            WidthRequest="70"
-            />
-        
+
         <Label
             Text="Catalog"
             Grid.Row="1"
@@ -69,12 +61,6 @@
             Grid.Column="0"
             HorizontalOptions="Center"
             />
-        <Label
-            Text="Login"
-            Grid.Row="3"
-            Grid.Column="1"
-            HorizontalOptions="Center"
-            />
-        
-        </Grid>
+
+    </Grid>
 </ContentPage>

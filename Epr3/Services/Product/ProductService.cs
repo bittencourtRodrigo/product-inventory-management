@@ -17,6 +17,7 @@ namespace Epr3.Services.ProductSave
             await _database.Init();
 
             if (product.Id == 0)
+
                 await _database.Database.InsertAsync(product);
             else
                 await _database.Database.UpdateAsync(product);
@@ -38,11 +39,19 @@ namespace Epr3.Services.ProductSave
             await _database.Init();
             foreach (var product in products)
             {
-                double? newAmount = product.CurrentInventory - product.QuantityBasket;
+                double newAmount = product.CurrentInventory - product.QuantityBasket;
                 var oldProduct = await _database.Database.Table<CatalogProductModel>().FirstAsync(x => x.Id == product.Id);
                 oldProduct.CurrentInventory = newAmount;
                 await ProductSaveAsync(oldProduct);
             }
+        }
+
+        public async Task DefineUserIdAllProductsAsync(string uid)
+        {
+            await _database.Init();
+            var products = await _database.Database.Table<CatalogProductModel>().ToListAsync();
+            products.ForEach(x => x.Uid = uid);
+            await _database.Database.UpdateAllAsync(products);
         }
     }
 }
