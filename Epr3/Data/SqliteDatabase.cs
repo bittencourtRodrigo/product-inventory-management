@@ -9,7 +9,7 @@ namespace Epr3.Data
 
         public async Task Init()
         {
-            if (!(Database == null))
+            if (Database != null)
                 return;
 
             Database = new SQLiteAsyncConnection(SqliteConstants.DatabasePath, SqliteConstants.Flags);

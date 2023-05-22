@@ -53,5 +53,13 @@ namespace Epr3.Services.ProductSave
             products.ForEach(x => x.Uid = uid);
             await _database.Database.UpdateAllAsync(products);
         }
+
+        public async Task ProductSaveRangeAsync(List<CatalogProductModel> products)
+        {
+            foreach (var item in products)
+            {
+                await ProductSaveAsync(item);
+            }
+        }
     }
 }

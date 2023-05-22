@@ -16,7 +16,7 @@
         <Button
             Text="Upload products"
             BackgroundColor="Blue"
-            />
+            Command="{Binding UploadCommand}"/>
         <Button
             Text="Download products"
             BackgroundColor="Blue"

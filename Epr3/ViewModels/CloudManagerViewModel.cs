@@ -41,11 +41,10 @@ namespace Epr3.ViewModels
         {
             try
             {
-                await Login();
-                await _productService.DefineUserIdAllProductsAsync(_client.User.Uid);
-                string serialize = JsonSerializer.Serialize<List<CatalogProductModel>>(await _productService.ProductGetAllAsync());
-                HttpResponseMessage status = await PostJson(serialize);
-                await App.Current.MainPage.DisplayAlert("Alert", $"Finish. {status}", "Back");
+                var userId = await _cloudService.Login(EmailUser, Password);
+                await _productService.DefineUserIdAllProductsAsync(userId);
+                HttpResponseMessage status = await _cloudService.PostJson(await _productService.ProductGetAllAsync(), ApiConstants.SavePostUri);
+                await App.Current.MainPage.DisplayAlert("Alert", $"Finish. {status.StatusCode}", "Back");
             }
             catch (FirebaseAuthException e)
             {
@@ -57,41 +56,18 @@ namespace Epr3.ViewModels
         [RelayCommand]
         private async Task DownloadAsync()
         {
-            //HttpClient httpClient = new HttpClient();
-            //HttpResponseMessage response = await httpClient.GetAsync(ApiConstants.ApiGetUri);
-            //var serializer = await response.Content.ReadAsStringAsync();
-            var serializer = "[{\"id\":6,\"uid\":\"HXalGtWgqbfDYtdzZCP7Y9S6z1D3\",\"barcode\":0,\"currentInventory\":0,\"storeLocation\":null,\"name\":\"Pa\",\"costPrice\":0,\"salePrice\":0,\"observation\":null},{\"id\":7,\"uid\":\"HXalGtWgqbfDYtdzZCP7Y9S6z1D3\",\"barcode\":0,\"currentInventory\":0,\"storeLocation\":null,\"name\":\"Tv\",\"costPrice\":0,\"salePrice\":0,\"observation\":null},{\"id\":8,\"uid\":\"HXalGtWgqbfDYtdzZCP7Y9S6z1D3\",\"barcode\":0,\"currentInventory\":0,\"storeLocation\":null,\"name\":\"Enxada\",\"costPrice\":0,\"salePrice\":0,\"observation\":null}]";
-            List<CatalogProductModel> list = JsonSerializer.Deserialize<List<CatalogProductModel>>(serializer);
-            list.ForEach(x => _productService.ProductSaveAsync(x));
-            await App.Current.MainPage.DisplayAlert("Alert", "Download conclued.", "Back");
-
-        }
-
-        private async Task<HttpResponseMessage> PostJson(string serialize)
-        {
-            HttpClient httpClient = new HttpClient();
-            HttpContent content = new StringContent(serialize, Encoding.UTF8, "application/json");
-            return await httpClient.PostAsync(ApiConstants.ApiPostUri, content);
-        }
-
-        private async Task Login()
-        {
-            var config = new FirebaseAuthConfig()
-            {
-                ApiKey = FirebaseConstants.ApiKey,
-                AuthDomain = FirebaseConstants.Domain,
-                Providers = new FirebaseAuthProvider[] { new EmailProvider() }
-            };
-
-            _client = new FirebaseAuthClient(config);
-
             try
             {
-                await _client.SignInWithEmailAndPasswordAsync(EmailUser, Password);
+                var userId = await _cloudService.Login(EmailUser, Password);
+                HttpResponseMessage response = await _cloudService.PostJson(userId, ApiConstants.ListByUidPostUri);
+                List<CatalogProductModel> products = Newtonsoft.Json.JsonConvert.DeserializeObject<List<CatalogProductModel>>(await response.Content.ReadAsStringAsync());
+                await _productService.ProductSaveRangeAsync(products);
+                await App.Current.MainPage.DisplayAlert("Alert", "Finish.", "Back");
             }
             catch (FirebaseAuthException e)
             {
-                throw new FirebaseAuthException("Email or password invalid.", e.Reason);
+                await App.Current.MainPage.DisplayAlert("Alert", e.Message, "Back");
+                return;
             }
         }
     }
