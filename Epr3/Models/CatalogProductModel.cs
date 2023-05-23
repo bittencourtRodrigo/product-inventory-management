@@ -34,7 +34,6 @@ namespace Epr3.Models
         public string? Observation { get; set; }
 
         public CatalogProductModel() { }
-
         public CatalogProductModel(string uid,long barcode, double currentInventory
             , string name, double costPrice, double salePrice, string observation = null)
         {

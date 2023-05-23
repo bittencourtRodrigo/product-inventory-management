@@ -1,5 +1,4 @@
 ﻿using System.Windows.Input;
-
 namespace Epr3.Helpers.BindableProperties
 {
     public class CustomListView : ListView
@@ -9,7 +8,6 @@ namespace Epr3.Helpers.BindableProperties
             typeof(ICommand),
             typeof(CustomListView)
             );
-
         public ICommand ItemTappedCommand
         {
             get
@@ -21,12 +19,10 @@ namespace Epr3.Helpers.BindableProperties
                 SetValue(ItemTappedCommandProperty, value);
             }
         }
-
         public CustomListView()
         {
             ItemTapped += OnItemTapped;
         }
-
         private void OnItemTapped(object sender, ItemTappedEventArgs e)
         {
             if (e.Item != null)

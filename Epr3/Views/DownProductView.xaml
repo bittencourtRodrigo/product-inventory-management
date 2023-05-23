@@ -5,7 +5,6 @@
              x:Class="Epr3.Views.DownProductView"
              Shell.BackgroundColor="Blue"
              Title="Down inventory">
-
     <Grid RowDefinitions="Auto, 200, Auto, *, 50" 
           ColumnDefinitions="*">
         <Grid Grid.Row="0" Grid.Column="0">
@@ -15,7 +14,6 @@
                 Text=""
                 Placeholder="Search for any ProductList feature. Ex: name, bar code."/>
         </Grid>
-
         <Grid Grid.Row="1"  Grid.Column="0">
             <ScrollView>
                 <listViewLocal:CustomListView ItemsSource="{Binding ProductList}" ItemTappedCommand="{Binding TapItemProductListCommand}" VerticalScrollBarVisibility="Never">
@@ -58,7 +56,6 @@
                 Grid.Column="3"
                 FontAttributes="Bold"
                 Text="DOWN AMT"/>
-
         </Grid>
         <Grid Grid.Row="3">
             <ScrollView>

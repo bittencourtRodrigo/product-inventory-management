@@ -36,7 +36,6 @@
             HeightRequest="70"
             WidthRequest="70"
             />
-
         <Label
             Text="Catalog"
             Grid.Row="1"
@@ -61,6 +60,5 @@
             Grid.Column="0"
             HorizontalOptions="Center"
             />
-
     </Grid>
 </ContentPage>

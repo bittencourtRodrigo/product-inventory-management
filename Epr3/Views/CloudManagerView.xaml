@@ -21,5 +21,23 @@
             Text="Download products"
             BackgroundColor="Blue"
             Command="{Binding DownloadCommand}"/>
+        <Button
+            Text="Register"
+            TextColor="Blue"
+            BackgroundColor="Transparent"
+            BorderColor="Blue"
+            Command="{Binding RegisterCommand}"/>
+        <Label
+            BackgroundColor="Transparent"
+            TextColor="OrangeRed"
+            Text="Upload: all items in the cloud will be exchanged for the items that are in the app at the moment."/>
+        <Label
+            BackgroundColor="Transparent"
+            TextColor="OrangeRed"
+            Text="Download: all the items on the device will be exchanged for the items that are in the cloud."/>
+        <Label
+            BackgroundColor="Transparent"
+            TextColor="OrangeRed"
+            Text="Register: If you don't have a LOGIN, enter email and password and click register, then you can save your items in the cloud."/>
     </StackLayout>
 </ContentPage>
