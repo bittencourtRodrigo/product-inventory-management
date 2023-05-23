@@ -5,6 +5,7 @@ namespace Epr3.Data
     public class SqliteDatabase
     {
         public SQLiteAsyncConnection Database;
+
         public async Task Init()
         {
             if (Database != null)

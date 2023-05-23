@@ -5,6 +5,12 @@ namespace Epr3.Services.ItemSearcher
     public class ItemSearcherService : IItemSearcherService
     {
         private readonly IProductService _productService;
+        
+        public ItemSearcherService(IProductService productService)
+        {
+            _productService = productService;
+        }
+
         public async Task<List<CatalogProductModel>> SearchProduct(string searchText)
         {
             if (string.IsNullOrEmpty(searchText))
@@ -16,10 +22,6 @@ namespace Epr3.Services.ItemSearcher
                 filteredProducts = filteredProducts.Where(x => x.Name.ToLower().Contains(item)).ToList();
             }
             return filteredProducts;
-        }
-        public ItemSearcherService(IProductService productService)
-        {
-            _productService = productService;
         }
     }
 }

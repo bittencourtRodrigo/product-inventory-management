@@ -14,14 +14,17 @@ namespace Epr3.ViewModels
         private readonly INavigationService _navigationService;
         private readonly IProductService _productService;
         private readonly IItemSearcherService _itemSearcherService;
+
         [ObservableProperty]
         ObservableCollection<CatalogProductModel> _productList;
+        
         [ObservableProperty]
         string _searchText;
         partial void OnSearchTextChanged(string value)
         {
             CatalogSearcher(value);
         }
+        
         public CatalogProductViewModel(INavigationService navigationService, IProductService productService, IItemSearcherService itemSearcherService)
         {
             _navigationService = navigationService;
@@ -29,10 +32,12 @@ namespace Epr3.ViewModels
             _itemSearcherService = itemSearcherService;
             CatalogSearcher(string.Empty);
         }
+        
         private async void CatalogSearcher(string searchText)
         {
             ProductList = new ObservableCollection<CatalogProductModel>(await _itemSearcherService.SearchProduct(searchText));
         }
+        
         private async Task DeleteAsync(CatalogProductModel item)
         {
             string choice = await Shell.Current.DisplayActionSheet($"ALERT! '{item.Name}' will be deleted.", "Cancel", null, new string[] { nameof(ChoiceItemCatalog.Delete) });
@@ -41,6 +46,7 @@ namespace Epr3.ViewModels
             await _productService.ProductDeleteAsync(item);
             await _navigationService.NavigateToAsync("../..");
         }
+        
         [RelayCommand]
         private async Task TapItem(object itemTapped)
         {

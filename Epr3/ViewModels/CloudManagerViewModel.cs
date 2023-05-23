@@ -6,6 +6,9 @@ using Epr3.Services.Cloud;
 using Epr3.Services.Navigation;
 using Epr3.Services.ProductSave;
 using Firebase.Auth;
+using Newtonsoft.Json.Linq;
+using System.Text.Json;
+
 namespace Epr3.ViewModels
 {
     public partial class CloudManagerViewModel : ObservableObject
@@ -13,24 +16,29 @@ namespace Epr3.ViewModels
         private readonly INavigationService _navigationService;
         private readonly IProductService _productService;
         private readonly ICloudService _cloudService;
+
         [ObservableProperty]
         string _emailUser;
+        
         [ObservableProperty]
         string _password;
+        
         public CloudManagerViewModel(INavigationService navigationService, IProductService productService, ICloudService cloudService)
         {
             _navigationService = navigationService;
             _productService = productService;
             _cloudService = cloudService;
         }
+        
         [RelayCommand]
         private async Task UploadAsync()
         {
             try
             {
                 string userId = await _cloudService.Login(EmailUser, Password);
-                await _productService.DefineUserIdAllProductsAsync(userId);
-                HttpResponseMessage status = await _cloudService.PostJson(await _productService.ProductGetAllAsync(), ApiConstants.SavePostUri);
+                string productsJson = JsonSerializer.Serialize(await _productService.ProductGetAllAsync());
+                UserProductsJson userProductsJson = new UserProductsJson() { UserId = userId, ProductsJson = productsJson};
+                HttpResponseMessage status = await _cloudService.PostJson(userProductsJson, ApiConstants.SavePostUri);
                 await App.Current.MainPage.DisplayAlert("Alert", $"Upload Finish.", "Back");
             }
             catch (FirebaseAuthException e)
@@ -40,6 +48,7 @@ namespace Epr3.ViewModels
             }
             await _navigationService.NavigateToAsync("..");
         }
+        
         [RelayCommand]
         private async Task DownloadAsync()
         {
@@ -59,6 +68,7 @@ namespace Epr3.ViewModels
             }
             await _navigationService.NavigateToAsync("..");
         }
+        
         [RelayCommand]
         private async Task RegisterAsync()
         {
@@ -73,5 +83,11 @@ namespace Epr3.ViewModels
                 return;
             }
         }
+    }
+
+    sealed class UserProductsJson
+    {
+        public string UserId { get; set; }
+        public string ProductsJson { get; set; }
     }
 }

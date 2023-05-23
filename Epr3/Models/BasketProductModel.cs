@@ -6,6 +6,9 @@
         public double CurrentInventory { get; set; }
         public string Name { get; set; }
         public double QuantityBasket { get; set; }
+
+        public BasketProductModel() { }
+
         public BasketProductModel(int id, double currentInventory, string name, double quantityBasket)
         {
             Id = id;

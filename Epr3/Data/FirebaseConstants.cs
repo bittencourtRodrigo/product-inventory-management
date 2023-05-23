@@ -2,7 +2,8 @@
 {
     public static class FirebaseConstants
     {
-        public const string ApiKey = "AIzaSyAVnBc7AXBn0nzKrVphMttmV8sBUP8g6q4";
-        public const string Domain = "eprdorodrigo.firebaseapp.com";
+        //Create the data at Firebase and paste here.
+        public const string ApiKey = "Exemple: AIzaSyAVnBc7A877777zKrVphMttmV8sBUP8g6q4";
+        public const string Domain = "Exemple: eprdoze.firebaseapp.com";
     }
 }

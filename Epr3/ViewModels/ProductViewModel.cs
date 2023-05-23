@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using Epr3.Models;
 using Epr3.Services.Navigation;
 using Epr3.Services.ProductSave;
+
 namespace Epr3.ViewModels
 {
     [QueryProperty(nameof(Product), nameof(CatalogProductModel))]
@@ -10,14 +11,17 @@ namespace Epr3.ViewModels
     {
         private readonly IProductService _productSaveService;
         private readonly INavigationService _navigationService;
+
         [ObservableProperty]
         private CatalogProductModel _product;
+
         public ProductViewModel(IProductService productService, INavigationService navigationService)
         {
             _productSaveService = productService;
             _navigationService = navigationService;
             Product = new CatalogProductModel();
         }
+
         [RelayCommand]
         private async Task ProductSaveAsync()
         {

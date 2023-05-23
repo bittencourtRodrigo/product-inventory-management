@@ -14,6 +14,7 @@ namespace Epr3.Services.Cloud
             HttpContent httpContent = new StringContent(json, Encoding.UTF8, "application/json");
             return await httpClient.PostAsync(stringConnection, httpContent);
         }
+
         public async Task<string> Login(string emailUser, string password)
         {
             FirebaseAuthConfig config = new FirebaseAuthConfig()
@@ -33,6 +34,7 @@ namespace Epr3.Services.Cloud
                 throw new FirebaseAuthException("Email or password invalid.", e.Reason);
             }
         }
+        
         public async Task Register(string emailUser, string password)
         {
             FirebaseAuthConfig config = new FirebaseAuthConfig()
