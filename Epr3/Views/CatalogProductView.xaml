@@ -10,8 +10,8 @@
             <SearchBar
             HorizontalOptions="Center"
             Grid.Row="0"
-            Placeholder="Serach here..."
-            Text=""/>
+            Placeholder="Serach here"
+            Text="{Binding SearchText}"/>
             <listViewLocal:CustomListView ItemsSource="{Binding ProductList}" ItemTappedCommand="{Binding TapItemCommand}" VerticalScrollBarVisibility="Never">
                 <ListView.ItemTemplate>
                     <DataTemplate>

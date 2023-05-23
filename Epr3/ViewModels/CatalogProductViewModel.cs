@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using Epr3.Models;
 using Epr3.Models.Enums;
+using Epr3.Services.ItemSearcher;
 using Epr3.Services.Navigation;
 using Epr3.Services.ProductSave;
 using Epr3.Views;
@@ -12,17 +13,25 @@ namespace Epr3.ViewModels
     {
         private readonly INavigationService _navigationService;
         private readonly IProductService _productService;
+        private readonly IItemSearcherService _itemSearcherService;
         [ObservableProperty]
         ObservableCollection<CatalogProductModel> _productList;
-        public CatalogProductViewModel(INavigationService navigationService, IProductService productService)
+        [ObservableProperty]
+        string _searchText;
+        partial void OnSearchTextChanged(string value)
+        {
+            CatalogSearcher(value);
+        }
+        public CatalogProductViewModel(INavigationService navigationService, IProductService productService, IItemSearcherService itemSearcherService)
         {
             _navigationService = navigationService;
             _productService = productService;
-            NewLists();
+            _itemSearcherService = itemSearcherService;
+            CatalogSearcher(string.Empty);
         }
-        private async void NewLists()
+        private async void CatalogSearcher(string searchText)
         {
-            ProductList = new ObservableCollection<CatalogProductModel>(await _productService.ProductGetAllAsync());
+            ProductList = new ObservableCollection<CatalogProductModel>(await _itemSearcherService.SearchProduct(searchText));
         }
         private async Task DeleteAsync(CatalogProductModel item)
         {

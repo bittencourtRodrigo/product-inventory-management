@@ -1,5 +1,6 @@
 ﻿using Epr3.Data;
 using Epr3.Services.Cloud;
+using Epr3.Services.ItemSearcher;
 using Epr3.Services.Navigation;
 using Epr3.Services.ProductSave;
 using Epr3.ViewModels;
@@ -24,6 +25,7 @@ public static class MauiProgram
         builder.Services.AddSingleton<INavigationService, NavigationService>();
         builder.Services.AddSingleton<IProductService, ProductService>();
         builder.Services.AddSingleton<ICloudService, CloudService>();
+        builder.Services.AddSingleton<IItemSearcherService, ItemSearcherService>();
         builder.Services.AddSingleton<SqliteDatabase>();
         builder.Services.AddTransient<CatalogProductViewModel>();
         builder.Services.AddTransient<CatalogProductView>();
