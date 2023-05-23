@@ -9,10 +9,8 @@
           ColumnDefinitions="*">
         <Grid Grid.Row="0" Grid.Column="0">
             <SearchBar
-                WidthRequest="300"
-                x:Name="SearchBarX"
-                Text=""
-                Placeholder="Search for any ProductList feature. Ex: name, bar code."/>
+                HorizontalOptions="Center"
+                Text="{Binding SearchText}"/>
         </Grid>
         <Grid Grid.Row="1"  Grid.Column="0">
             <ScrollView>
